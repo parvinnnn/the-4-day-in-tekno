@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         <style>
+
+
+        .box {
+            width: 100px;
+            height: 100px;
+            border-style: solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-evenly;
+            padding-left: 60px;
+            padding-right: 200px;
+            padding-left: 200px;
+            margin-bottom: 50px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+        <div id="box4" class="box"></div>
+        <div id="box5" class="box"></div>
+        <div id="box6" class="box"></div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <button onclick="generate()" style="width: 200px; height: 100px;">ÇEKİLİŞ</button>
+
+<div style=" display: flex; justify-content: center;">
+    <button onclick="generate()" style=" width: 260px; height: 160px;">ok</button>
+</div>
+</body>
+<script>
+        function generate() {
+            //Rastgele 1-49 arasında 6 adet sayı üretmek ve bu sayıları bir diziye push etmek istiyorum. Aynı sayı denk gelmemeli
+
+            var randomNumbers = []
+            var repeated = false
+
+            for (i = 1; i <= 6; i++) {
+                var randomNumber = Math.floor(Math.random() * 49)
+
+                for (j = 0; j < randomNumbers.length; j++) {
+                    if (randomNumber == randomNumbers[i]) {
+                        repeated = true
+                        break
+                    }
+                }
+
+                if(repeated){
+                    i--
+                }
+                else {
+                    document.getElementById("box" + i).innerHTML = randomNumber
+                    randomNumbers.push(randomNumber)
+                }
+            }
+            
+        }
+
+</script>
+</html>
